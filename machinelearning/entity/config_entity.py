@@ -8,7 +8,7 @@ class TrainingPipelineConfig:
         self.artifact_name = training_pipeline.ARTIFACT_DIR
         self.artifact_dir = os.path.join(
             self.artifact_name, timestamp
-        )
+            )
         self.timestamp: str = timestamp
 
 class DataIngestionConfig:
@@ -18,33 +18,64 @@ class DataIngestionConfig:
         self.data_ingestion_dir = os.path.join(
             training_pipeline_config.artifact_dir,
             training_pipeline.DATA_INGESTION_DIR
-        )
-
+           )
         # Output CSV artifact paths
         self.training_file_path = os.path.join(
             self.data_ingestion_dir,
             training_pipeline.DATA_INGESTION_INGESTED_DIR,
             training_pipeline.TRAIN_FILE_NAME
-        )
-
+            )
         self.testing_file_path = os.path.join(
             self.data_ingestion_dir,
             training_pipeline.DATA_INGESTION_INGESTED_DIR,
             training_pipeline.TEST_FILE_NAME
-        )
-
+            )
         self.inference_file_path = os.path.join(
             self.data_ingestion_dir,
             training_pipeline.DATA_INGESTION_INGESTED_DIR,
             training_pipeline.INF_FILE_NAME
-        )
-
+            )
         # PostgreSQL tables
         self.train_table = training_pipeline.DATA_INGESTION_TRAIN_TABLE
         self.test_table = training_pipeline.DATA_INGESTION_TEST_TABLE
         self.inference_table = training_pipeline.DATA_INGESTION_INFERENCE_TABLE
-
         # PostgreSQL database name and schema
         self.database_name = training_pipeline.DATA_INGESTION_DB_NAME
         self.schema = training_pipeline.DATA_INGESTION_SCHEMA
+
+class DataValidationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.data_validation_dir: str = os.path.join( 
+            training_pipeline_config.artifact_dir,
+            training_pipeline.DATA_VALIDATION_DIR_NAME
+            )
+        self.valid_data_dir: str = os.path.join(
+            self.data_validation_dir, 
+            training_pipeline.DATA_VALIDATION_VALID_DIR
+            )
+        self.invalid_data_dir: str = os.path.join(
+            self.data_validation_dir,
+            training_pipeline.DATA_VALIDATION_INVALID_DIR
+            )
+        self.valid_train_file_path: str = os.path.join(
+            self.valid_data_dir,
+            training_pipeline.TRAIN_FILE_NAME
+            )
+        self.valid_test_file_path: str = os.path.join(
+            self.valid_data_dir,
+            training_pipeline.TEST_FILE_NAME
+            )
+        self.invalid_train_file_path: str = os.path.join(
+            self.invalid_data_dir,
+            training_pipeline.TRAIN_FILE_NAME
+            )
+        self.invalid_test_file_path: str = os.path.join(
+            self.invalid_data_dir,
+            training_pipeline.TEST_FILE_NAME
+            )
+        self.drift_report_file_path: str = os.path.join(
+            self.data_validation_dir,
+            training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
+            training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME,
+            )
 

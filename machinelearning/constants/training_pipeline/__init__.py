@@ -45,3 +45,16 @@ DATA_INGESTION_DIR: str = "data_ingestion"
 
 # Subfolder where ingested CSV artifacts will be stored
 DATA_INGESTION_INGESTED_DIR: str = "ingested_data"
+
+""" ============================
+    DATA VALIDATION ARTIFACT FOLDERS
+    ============================ """
+# Schema file path
+SCHEMA_FILE_PATH = os.path.join("data_schema", "schema.yaml")
+# Folder created under the pipeline timestamp directory
+DATA_VALIDATION_DIR_NAME: str = "data_validation"
+DATA_VALIDATION_VALID_DIR: str = "validated"
+DATA_VALIDATION_INVALID_DIR: str = "invalid"
+DATA_VALIDATION_DRIFT_REPORT_DIR: str = "drift_report"
+DATA_VALIDATION_DRIFT_REPORT_FILE_NAME: str = "report.yaml"
+PREPROCESSING_OBJECT_FILE_NAME = "preprocessing.pkl"

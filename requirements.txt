@@ -1,7 +1,10 @@
 python-dotenv
 pandas
 numpy
+scipy
 sqlalchemy 
 psycopg2-binary
 scikit-learn
 certifi
+pyaml
+dill

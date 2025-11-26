@@ -1,0 +1,28 @@
+columns:
+  loan_product: object
+  disbursed_amt: float64
+  outstanding_bal: float64
+  interest_rate: float64
+  gender: object
+  marital_status: object
+  employment_status: object
+  region: object
+  branch_type: object
+  days_late: int64
+  target_default: int64
+
+numerical_columns:
+  - disbursed_amt
+  - outstanding_bal
+  - interest_rate
+  - days_late
+
+categorical_columns:
+  - loan_product
+  - gender
+  - marital_status
+  - employment_status
+  - region
+  - branch_type
+
+target_column: target_default
