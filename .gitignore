@@ -9,3 +9,9 @@ wheels/
 # Virtual environments
 .venv
 .env
+logs/
+*.log
+mlruns/
+__pypackages__/
+.ipynb_checkpoints
+Artifacts/
