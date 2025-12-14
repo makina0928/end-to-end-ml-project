@@ -6,10 +6,12 @@ from machinelearning.entity.config_entity import TrainingPipelineConfig
 from machinelearning.components.data_ingestion import DataIngestion
 from machinelearning.components.data_validation import DataValidation
 from machinelearning.components.data_transformation import DataTransformation
+from machinelearning.components.model_trainer import ModelTrainer
 from machinelearning.entity.config_entity import (
     DataIngestionConfig, 
     DataValidationConfig,
-    DataTransformationConfig
+    DataTransformationConfig,
+    ModelTrainerConfig
 )
 
 if __name__=='__main__':
@@ -33,5 +35,11 @@ if __name__=='__main__':
         data_transformation_artifact=data_transformation.initiate_data_transformation()
         logging.info("data Transformation Completed")
         print(data_transformation_artifact)
+        model_trainer_config=ModelTrainerConfig(trainingpipelineconfig)
+        model_trainer=ModelTrainer(model_trainer_config,data_transformation_artifact)
+        logging.info("Initiate the model trainer")
+        model_trainer_artifact=model_trainer.initiate_model_trainer()
+        logging.info("model trainer Completed")
+        print(model_trainer_artifact)
     except Exception as e:
         raise MachinelearningException(e, sys)

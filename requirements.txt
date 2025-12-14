@@ -7,3 +7,7 @@ psycopg2-binary
 scikit-learn
 certifi
 pyaml
+mlflow==3.7.0
+streamlit
+seaborn
+matplotlib

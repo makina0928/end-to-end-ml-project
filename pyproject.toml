@@ -7,6 +7,8 @@ requires-python = ">=3.12"
 dependencies = [
     "certifi>=2025.11.12",
     "dill>=0.4.0",
+    "matplotlib>=3.10.8",
+    "mlflow==3.7.0",
     "numpy>=2.3.5",
     "pandas>=2.3.3",
     "psycopg2-binary>=2.9.11",
@@ -14,5 +16,7 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "scikit-learn>=1.7.2",
     "scipy>=1.16.3",
+    "seaborn>=0.13.2",
     "sqlalchemy>=2.0.44",
+    "streamlit>=1.52.1",
 ]
